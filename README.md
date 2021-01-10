@@ -1,3 +1,3 @@
-# watched-nasa
+# mediaurl-nasa
 
-watched addon for nasa.gov
+MediaURL addon for nasa.gov

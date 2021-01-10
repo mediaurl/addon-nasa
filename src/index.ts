@@ -1,4 +1,4 @@
-import { createWorkerAddon, runCli } from '@watchedcom/sdk';
+import { createWorkerAddon, runCli } from '@mediaurl/sdk';
 import nasa from './nasa';
 
 const nasaAddon = createWorkerAddon({
