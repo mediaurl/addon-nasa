@@ -1,6 +1,6 @@
-import { ChannelItem, DirectoryItem, DirectoryFeatures } from '@mediaurl/sdk';
+import { ChannelItem } from '@mediaurl/sdk';
 import fetch from 'node-fetch';
-import { parse as parseUrl, format as formatUrl } from 'url';
+import { format as formatUrl, parse as parseUrl } from 'url';
 
 /*
 let locales = require('./locales.json');

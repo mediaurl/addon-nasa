@@ -1,18 +1,22 @@
-import { createWorkerAddon, runCli } from '@mediaurl/sdk';
+import { createAddon, runCli } from '@mediaurl/sdk';
 import nasa from './nasa';
 
-const nasaAddon = createWorkerAddon({
+const nasaAddon = createAddon({
   id: 'nasa',
   name: 'Nasa Videos',
   version: '0.0.1',
   itemTypes: ['channel'],
-  defaultDirectoryOptions: {
-    imageShape: 'landscape',
-    displayName: true,
-  },
-  defaultDirectoryFeatures: {
-    search: { enabled: true },
-  },
+  catalogs: [
+    {
+      features: {
+        search: { enabled: true },
+      },
+      options: {
+        imageShape: 'landscape',
+        displayName: true,
+      },
+    },
+  ],
   dashboards: [
     {
       id: '',
@@ -21,7 +25,7 @@ const nasaAddon = createWorkerAddon({
   ],
 });
 
-nasaAddon.registerActionHandler('directory', async (input, ctx) => {
+nasaAddon.registerActionHandler('catalog', async (input, ctx) => {
   await ctx.requestCache([input.search, input.filter, input.cursor]);
   return await nasa.getVideos(input);
 });
